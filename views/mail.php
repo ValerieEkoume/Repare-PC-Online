@@ -1,37 +1,46 @@
 <?php
 
-// Vérification de tous les champs s'assurer qu'ils soient bien remplis
+use App\Connection;
+$pdo = (new Connection())->getPdo();
 
-if (empty($_POST['email']) ||
-    empty($_POST['name']) ||
-    //empty($_POST['phone'])   ||
-    empty($_POST['message']) ||
-    !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) //Si tous les champs ne sont pas remplis retourne faux
-{
-    return false;
-}
+//require_once '../agence/Model/liste.php';
+
+//$sql = $pdo->prepare('SELECT nom_centre, adresse, tel, latitude, longitude, created, ouverture, fermeture FROM centres');
+//$sql->execute();
+//$villes = $sql->fetchAll();
 
 
-$name=strip_tags(htmlspecialchars($_POST['name']));
-$email_address=strip_tags(htmlspecialchars($_POST['email']));
-//$phone = strip_tags(htmlspecialchars($_POST['phone']));
-$message=strip_tags(htmlspecialchars($_POST['message']));
 
-// Pour créer l'email et pour voir l'envoyer
-$to='valerie.ekoume@gmail.com'; // Ajout de l'adresse mail qui va recevoir les messages
-$email_subject="Website Contact Form:  $name";
-$email_body="Vous avez reçu un nouveau message depuis le formulaire de contact de votre site Web.\n\n" .
-    "Voici les détails:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
-$headers="From: valerie.ekoume@gmail.com\n"; // This is the email address the generated message will be from.
-// We recommend using something like noreply@yourdomain.com.
-$headers.="Reply-To: $email_address";
-$send=mail($to, $email_subject, $email_body, $headers);
+if (isset($_GET['name'])) {
 
-//Conditions pour checker que le mail a bien été envoyé
-if ($send === true) {
-    header('Location: form.php?success=true');
-} else {
-    header('Location: form.php?success=false');
+    //$centre = strip_tags(htmlspecialchars($_POST['centre']));
+    $nom = strip_tags(htmlspecialchars($_POST['name']));
+    $email = strip_tags(htmlspecialchars($_POST['email']));
+    $adresse = strip_tags(htmlspecialchars($_POST['adresse']));
+    $message = strip_tags(htmlspecialchars($_POST['message']));
+    $tel = strip_tags(htmlspecialchars($_POST['tel']));
+
+
+    $req = $pdo->prepare("INSERT INTO client (email, name, adresse, tel, commentaire) VALUES ('$email', '$nom', '$adresse', '$tel', '$message')");
+    $req->execute();
+
+    if ($req) {
+        $success = 'Envoyer avec succès !';
+        header( 'Location: /index#centres');
+    } else {
+        $erreur = 'Echec lors de l\'envoie !';
+        header('Location: /index#centres');
+    }
+//paramètre de l'envoie de message
+
+    $to = 'valerie.ekoume@gmail.com'; // Ajout de l'adresse mail qui va recevoir les messages
+    $email_subject = "Website Contact Form:  $nom";
+    $email_body = "Vous avez reçu un nouveau message depuis le formulaire de contact de votre site Web.\n\n".
+                  "Voici les détails:\n\nName: $nom\n\nEmail: $email\n\nMessage:\n$message";
+    $headers = "From: valerie.ekoume@gmail.com\n"; // This is the email address the generated message will be from.
+    // We recommend using something like noreply@yourdomain.com.
+    $headers .= "Reply-To: $email";
+    $send = mail($to,$email_subject,$email_body,$headers);
 }
 
 

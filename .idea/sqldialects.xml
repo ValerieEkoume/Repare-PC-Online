@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/crud/delete.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/crud/update.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/views/admin.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/views/mail.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/views/map_file.php" dialect="GenericSQL" />
   </component>
 </project>

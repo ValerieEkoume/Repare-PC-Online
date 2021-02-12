@@ -17,7 +17,7 @@ $router->map('GET|POST', '/admin', function () {
 
 
 $router->map('GET|POST', '/home', function () {
-    require __DIR__ . '/../views/index.html';
+    require __DIR__ . '/../views/index.php';
 });
 
 $router->map('GET|POST', '/delete', function () {
@@ -47,9 +47,7 @@ $router->map('GET|POST', '/geek', function () {
     require __DIR__ . '/../views/login.php';
 });
 
-$router->map('GET|POST', '/form', function () {
-    require __DIR__ . '/../views/form.php';
-});
+
 
 
 

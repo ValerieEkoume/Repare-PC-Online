@@ -1,3 +1,6 @@
+<?php use App\Connection;
+$pdo = (new Connection())->getPdo();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -287,9 +290,22 @@
         </div>
 
       <!--      <div class="container" data-aos="fade-up" data-aos-delay="100">-->
+        <div class="content">
     <div id="maCarte"></div>
+            <?php
+            if (isset($erreur)) {
+                echo "<div class='alert alert-danger' role='alert'>
+  $erreur
+</div>";
+            }
+            if (isset($succes)) {
+                echo "<div class='alert alert-success' role='alert'>
+  $succes
+</div>";
+            }
+            ?>
 
-      <div class="content">
+
 
 <!--        <p class="topo">Vous rencontrez des difficultés à gérer votre ordinateur ? Vous êtes au-->
 <!--          bon endroit ! <br> Geek Garage effectue vos installations de logiciels, de la-->
@@ -431,103 +447,61 @@
     </section><!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Contact Us Section ======= -->
+
       <!-- Modal -->
 <!--      <div class="contain_modal">-->
-<!--          <?php if ( isset($_GET['success']) && $_GET['success'] == true): echo $msg = "<div class='alert alert-success -->
-<!--        alert-dismissible fade show my-3' role='alert'>-->
-<!--          <strong>Votre message a été envoyé avec succès!</strong> Nous sommes déjà en train de le lire.-->
-<!--          <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>-->
-<!--      </div>" ?>-->
-<!--      <?php  endif  ?>-->
-<!--      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
-<!--           aria-hidden="true">-->
-<!--          <div class="modal-dialog">-->
-<!--              <div class="modal-content">-->
-<!--                  <div class="modal-header ">-->
-<!--                      <h5 class="modal-title" id="exampleModalLabel">Contact</h5>-->
-<!--                  </div>-->
-<!--                  <div style="margin-left: 10px" class="modal-body">-->
-<!--                      <form class="w-100" method="post" action="/mail">-->
-<!--                          <div class="form-group pt-3" class="msgError form-group" onsubmit="return validateForm()" method="POST">-->
-<!--                              <input type="email" required class="form-control"  id="exampleInputEmail1"-->
-<!--                                     aria-describedby="emailHelp" placeholder="Adresse Email" name="email">-->
-<!--                          </div>-->
-<!--                          <div class="form-group pt-3">-->
-<!--                              <input type="text" pattern="^[a-zA-Z" required class="form-control" id="exampleInputPassword1"-->
-<!--                                     placeholder="Nom, Prénom, Raison social" name="name"<span class="error" id="errorname"></span><br>-->
-<!--                              <span title="Veuillez entrer uniquement des lettres"></span>-->
-<!--                          </div>-->
-<!--                          <div class="form-group pt-3">-->
-<!--                              <input type="text" class="form-control" id="exampleInputPassword1"-->
-<!--                                     placeholder="Adresse" name="adresse">-->
-<!--                          </div>-->
-<!--                          <div class="form-group pt-3">-->
-<!--                              <input required type="text"  class="form-control" id="exampleInputPassword1"-->
-<!--                                     placeholder="Numéro de téléphone" name="tel">-->
-<!--                          </div>-->
-<!--                          <div class="input-group pt-3">-->
-<!--                                    <textarea required class="form-control"  aria-label="With textarea"-->
-<!--                                              placeholder="Explication de votre problème" name="message"></textarea>-->
-<!--                          </div>-->
-
-<!--                  </div>-->
-<!--                  <div class="modal-footer">-->
-
-<!--                      <button type="submit" class="btn btn-primary">Envoyer</button>-->
-<!--                  </div>-->
-
-<!--              </div>-->
-<!--          </div>-->
-<!--      </div>-->
 
 
-    <!-- End Contact Us Section -->
-    <!-- Modal -->
-    <div class="contain_modal">
-
+          <?php if ( isset($_POST['success']) && $_POST['success'] == true): echo $msg = "<div class='alert alert-success 
+      alert-dismissible fade show my-3' role='alert'>
+         <strong>Votre message a été envoyé avec succès!</strong> Nous sommes déjà en train de le lire.
+         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+       </div>" ?>
+       <?php  endif  ?>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
            aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header ">
-              <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
-            </div>
-            <div style="margin-left: 10px" class="modal-body">
-              <form class="w-100" method="post" action="/mail">
-                <div class="form-group pt-3">
-                  <input type="hidden" class="form-control" id="contact_center"
-                         aria-describedby="emailHelp" name="centre" value="">
-                </div>
-                <div class="form-group pt-3">
-                  <input type="email" class="form-control" id="exampleInputEmail1"
-                         aria-describedby="emailHelp" placeholder="Adresse Email" name="email">
-                </div>
-                <div class="form-group pt-3">
-                  <input type="text" class="form-control" id="exampleInputPassword1"
-                         placeholder="Nom, Prénom, Raison social" name="name">
-                </div>
-                <div class="form-group pt-3">
-                  <input type="text" class="form-control" id="exampleInputPassword1"
-                         placeholder="Adresse" name="adresse">
-                </div>
-                <div class="form-group pt-3">
-                  <input type="text" class="form-control" id="exampleInputPassword1"
-                         placeholder="Numéro de téléphone" name="tel">
-                </div>
-                <div class="input-group pt-3">
-                                    <textarea class="form-control" aria-label="With textarea"
-                                              placeholder="Explication de votre problème" name="message"></textarea>
-                </div>
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header ">
+                      <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+                  </div>
+                  <?php if (isset($_GET['name'])): dd($_GET); endif; ?>
+                  <div style="margin-left: 10px" class="modal-body">
+                      <form class="w-100" method="get" action="/home">
+                          <div class="form-group pt-3" class="msgError form-group" onsubmit="return validateForm()" method="POST">
+                              <input type="email" required class="form-control"  id="exampleInputEmail1"
+                                     aria-describedby="emailHelp" placeholder="Adresse Email" name="email">
+                          </div>
+                          <div class="form-group pt-3">
+                              <input type="text" pattern="^[a-zA-Z" required class="form-control" id="exampleInputPassword1"
+                                     placeholder="Nom, Prénom, Raison social" name="name"<span class="error" id="errorname"></span><br>
+                              <span title="Veuillez entrer uniquement des lettres"></span>
+                          </div>
+                          <div class="form-group pt-3">
+                              <input type="text" class="form-control" id="exampleInputPassword1"
+                                     placeholder="Adresse" name="adresse">
+                          </div>
+                          <div class="form-group pt-3">
+                              <input required type="text"  class="form-control" id="exampleInputPassword1"
+                                     placeholder="Numéro de téléphone" name="tel">
+                          </div>
+                          <div class="input-group pt-3">
+                                    <textarea required class="form-control"  aria-label="With textarea"
+                                              placeholder="Dites-nous tout..." name="message"></textarea>
+                          </div>
 
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Envoyer</button>
-            </div>
-            </form>
+                  </div>
+                  <div class="modal-footer">
+
+                      <button name="form_submit" type="submit" class="btn btn-primary">Envoyer</button>
+                  </div>
+
+              </div>
           </div>
-        </div>
       </div>
-    </div>
+
+
+
 
 
   </main>
