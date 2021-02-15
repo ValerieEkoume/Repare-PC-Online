@@ -1,8 +1,19 @@
 <?php
 //require '../views/header.html';
 //Connection à la BDD
+require '../views/header.html';
+require_once 'functions/auth.php';
+session_start();
+//force_utilisateur_connecte();
 use App\Connection;
+use App\DataLogin;
+use App\User;
+
 $pdo = (new Connection())->getPdo();
+$user = new DataLogin();
+
+
+
 
 //Get the page via GET request (URL param: page), if non exist default the page to 1
 // $page = the page the user is currently on
@@ -22,31 +33,21 @@ $centres = $sth->fetchAll(PDO::FETCH_ASSOC);
 $num_centres = $pdo->query('SELECT COUNT(*) FROM centres')->fetchColumn();
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initiale-scale=1">
-    <meta http-equiv="X-UA-compatible" content="ie=edge">
-    <link href="../assets/img/OFP-rouge-texte-blanc.png" rel="icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=IBM+Plex+Sans:wght@700&family=Pacifico&family=Space+Mono&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/31cfd28a45.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
 
-    <link rel="stylesheet" href="../assets/css/style.css">
 
-    <title>REPARE ONLINE GARAGE</title>
-</head>
 
 <body >
+
+<?php
+
+    if (isset($_SESSION['username'])) {
+
+        echo  '<div id=welcome>' .'Bonjour'. '&nbsp&nbsp' .$_SESSION['username']. '&nbsp&nbsp'. 'et' . '&nbsp&nbsp' .
+                'bienvenue'. '&nbsp&nbsp' . 'dans' . '&nbsp&nbsp' . 'votre' . '&nbsp&nbsp' . 'espace' . '&nbsp&nbsp' .
+                'de' . '&nbsp&nbsp' . 'gestion' . '.' .'</div>';
+    }
+
+?>
 
 <div class="admin">
     <h2 class="titre">Les Centres</h2>
@@ -56,6 +57,9 @@ $num_centres = $pdo->query('SELECT COUNT(*) FROM centres')->fetchColumn();
     <div class="create-centres">
         <a  class="creat" href="/ajouter" >Ajouter un centre</a>
     </div>
+
+
+
     <table>
         <thead>
         <tr>
@@ -102,7 +106,11 @@ $num_centres = $pdo->query('SELECT COUNT(*) FROM centres')->fetchColumn();
     </div>
 
 </div>
-
+<div id="logout">
+    <!--    --><?php //if ($user->getUsers()): ?>
+    <a class="nav-link nav-item" href="/logout">Déconnexion</a>
+    <!--    --><?php //endif; ?>
+</div>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ use App\Connection;
 $pdo = (new Connection())->getPdo();
 
 $msg = "";
-//require '../views/header.html';
+require '../views/header.html';
 // Vérifier que les données POST ne sont pas vide
 
 if (!empty($_POST)) {
@@ -32,8 +32,6 @@ if (!empty($_POST)) {
 
 }
 ?>
-<link rel="stylesheet" href="../assets/css/style.css">
-<script src="https://kit.fontawesome.com/31cfd28a45.js" crossorigin="anonymous"></script>
 
 <body>
 

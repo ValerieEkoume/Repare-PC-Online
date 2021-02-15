@@ -1,59 +1,9 @@
 <?php use App\Connection;
-$pdo = (new Connection())->getPdo();?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>REPARE PC online - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-<!--  <link href="../assets/img/favicon.png" rel="icon">-->
-  <link href="../assets/img/OFP-rouge-texte-blanc.png" rel="icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
-
-  <!-- Leaflet CSS Files -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
-
-  <!-- Leaflet JavaScript Files -->
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-          crossorigin=""></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-
-  <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="../assets/css/style.css" rel="stylesheet">
-
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+$pdo = (new Connection())->getPdo();
+require '../views/header.html'
+?>
 
 
-  <!-- =======================================================
-  * Template Name: Mamba - v4.0.0
-  * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
 
 <body>
 
@@ -286,12 +236,19 @@ $pdo = (new Connection())->getPdo();?>
       </div>
 
         <div class="section-title">
+            <div class="container" data-aos="fade-up">
             <h2>Nos Centres</h2>
+            </div>
         </div>
 
       <!--      <div class="container" data-aos="fade-up" data-aos-delay="100">-->
         <div class="content">
-    <div id="maCarte"></div>
+
+            <div class="row no-gutters">
+                <div class="col-lg-6 video-box" >
+                <div id="maCarte"></div>
+                </div>
+
             <?php
             if (isset($erreur)) {
                 echo "<div class='alert alert-danger' role='alert'>
@@ -304,8 +261,26 @@ $pdo = (new Connection())->getPdo();?>
 </div>";
             }
             ?>
+            </div>
 
 
+    <div class="col-lg-6 d-flex flex-column  about-content " data-aos="fade-up" data-aos-delay="200">
+
+        <div  id="rdv">
+            <h3 id="centres_h3">Comment prendre rendez-vous dans un de nos centres ?</h3>
+    <ol>
+        <li>Sur la carte, choisissez le centre le plus proche de votre domicile</li>
+        <li>Cliquez sur le repère</li>
+        <li>Remplissez le formulaire</li>
+        <li>Envoyez le formualire avec tous les champs remplis</li>
+    </ol>
+            <p id="centres_p"><strong>Un mail de confirmation vous sera envoyez sur votre messagerie.</strong> </p>
+    </div>
+
+</div>
+</div>
+
+</div>
 
 <!--        <p class="topo">Vous rencontrez des difficultés à gérer votre ordinateur ? Vous êtes au-->
 <!--          bon endroit ! <br> Geek Garage effectue vos installations de logiciels, de la-->
@@ -465,9 +440,9 @@ $pdo = (new Connection())->getPdo();?>
                   <div class="modal-header ">
                       <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
                   </div>
-                  <?php if (isset($_GET['name'])): dd($_GET); endif; ?>
+
                   <div style="margin-left: 10px" class="modal-body">
-                      <form class="w-100" method="get" action="/home">
+                      <form class="w-100" method="post" action="/mail">
                           <div class="form-group pt-3" class="msgError form-group" onsubmit="return validateForm()" method="POST">
                               <input type="email" required class="form-control"  id="exampleInputEmail1"
                                      aria-describedby="emailHelp" placeholder="Adresse Email" name="email">
@@ -551,7 +526,7 @@ $pdo = (new Connection())->getPdo();?>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Notre Newsletter</h4>
-            <p id="footer_p">Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p id="footer_p">Inscrivez-vous à notre newsletter</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>

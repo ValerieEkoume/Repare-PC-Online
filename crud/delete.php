@@ -1,6 +1,6 @@
 <?php
 use  App\Connection;
-//require '../views/header.html';
+require '../views/header.html';
 $pdo = (new Connection())->getPdo();
 $msg = '';
 $centres = '';
@@ -36,7 +36,7 @@ if (isset($_GET['confirm'])){
 }
 ?>
 
-<link rel="stylesheet" href="../assets/css/style.css">
+
 
 <body>
 

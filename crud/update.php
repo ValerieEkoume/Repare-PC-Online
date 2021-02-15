@@ -1,6 +1,6 @@
 <?php
 use App\Connection;
-//require '../views/header.html';
+require '../views/header.html';
 $pdo = (new Connection())->getPdo();
 $centres = '';
 $msg = '';
@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
 ?>
 
 
-<link rel="stylesheet" href="../assets/css/style.css">
+
 <body>
 
 <div class="content update">

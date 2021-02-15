@@ -47,6 +47,14 @@ $router->map('GET|POST', '/geek', function () {
     require __DIR__ . '/../views/login.php';
 });
 
+$router->map('GET|POST', '/logout', function () {
+    require __DIR__ . '/../views/logout.php';
+});
+
+$router->map('GET|POST', '/header', function () {
+    require __DIR__ . '/../views/header.html';
+});
+
 
 
 

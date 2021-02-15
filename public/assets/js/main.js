@@ -258,7 +258,7 @@ xmlhttp.onreadystatechange = () => {
         // On crée un marqueur pour l'agence
         let marker = L.marker([centre[1].latitude, centre[1].longitude]).addTo(carte)
         marker.bindPopup(centre[1].nom_centre + "<br>" + centre[1].adresse +  "<br>" + centre[1].ouverture + "<br>" + centre[1].fermeture +"<br>" +
-        "<button type='button' class='btn ' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='@mdo'>Contact</button>");
+        "<button type='button' class='btn btn-primary ' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='@mdo'>Contact</button>");
 
 
       })

@@ -1,7 +1,7 @@
 <?php
-
 use App\Connection;
 $pdo = (new Connection())->getPdo();
+
 
 //require_once '../agence/Model/liste.php';
 
@@ -11,7 +11,7 @@ $pdo = (new Connection())->getPdo();
 
 
 
-if (isset($_GET['name'])) {
+if (isset($_POST['name'])) {
 
     //$centre = strip_tags(htmlspecialchars($_POST['centre']));
     $nom = strip_tags(htmlspecialchars($_POST['name']));
