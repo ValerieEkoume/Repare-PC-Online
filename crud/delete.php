@@ -26,7 +26,7 @@ if (isset($_GET['confirm'])){
         $msg = 'Le centre a bien été effacé';
     } else {
         //Utiliser le bouton non pour annuler l'opération et pr une redirection vers l'espace admin
-        header('Location: /geek');
+        header('Location: /geek-online');
         exit;
     }
 
@@ -48,12 +48,12 @@ if (isset($_GET['confirm'])){
         <p id="delete_p">Confirmez-vous la suppression du centre #<?=$centres['id']?>?</p>
         <div class="yesno">
             <a href="delete?id=<?=$centres['id']?>&confirm=yes">Yes</a>
-            <a href="/admin?id=<?=$centres['id']?>&confirm=no">No</a>
+            <a href="/geek-online?id=<?=$centres['id']?>&confirm=no">No</a>
         </div>
     <?php endif; ?>
 </div>
 
-<a href="/admin"><button type="submit" id="retour">retour</button></a>
+<a href="/geek-online"><button type="submit" id="retour">retour</button></a>
 
 </body>
 

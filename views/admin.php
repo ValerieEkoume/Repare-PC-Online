@@ -96,7 +96,7 @@ $num_centres = $pdo->query('SELECT COUNT(*) FROM centres')->fetchColumn();
     </table>
     <div class="pagination">
         <?php if ($page>1): ?>
-            <a href="/admin?page=<?=$page-1?>"><i class="fas fa-angle-double-left"></i></a>
+            <a href="/geek-online?page=<?=$page-1?>"><i class="fas fa-angle-double-left"></i></a>
         <?php endif; ?>
         <?php if ($page*$records_per_page < $num_centres): ?>
             <a href="/geek?page=<?=$page+1?>"><i class="fas fa-angle-double-right"></i></a>

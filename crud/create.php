@@ -25,9 +25,10 @@ if (!empty($_POST)) {
     //insert the new record into the centres table
 
     $sth = $pdo->prepare('INSERT INTO centres VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-    //$sth->execute([$id, $nom_centre, $adresse, $tel, $latitude, $longitude, $created]);
+  $sth->execute([$id, $nom_centre, $adresse, $tel, $latitude, $longitude, $ouverture, $fermeture, $created]);
+
 //    $centres = $sth->fetchAll();
-//    $msg = 'Le centre a bien été créé';
+  $msg = "<div id='confirm'>Le centre a bien été créé</div>";
 
 
 }
@@ -37,7 +38,7 @@ if (!empty($_POST)) {
 
 <div class="create">
     <h2 id="create_h2">Créer un centre</h2>
-    <a href="/admin" id="chevron"><i class="fas fa-angle-double-left"></i></a>
+    <a href="/geek-online" id="chevron"><i class="fas fa-angle-double-left"></i></a>
     <form id="form_create" action="/ajouter" method="post">
             <label for="id">ID</label>
             <input type="text" name="id" value="auto" placeholder="id"  id="id">
@@ -49,10 +50,10 @@ if (!empty($_POST)) {
             <label for="tel">n° de téléphone</label>
             <input type="tel" name="tel" placeholder="N° de téléphone"  id="tel">
 
-            <label for="tel">latitude</label>
+            <label for="tel">Latitude</label>
             <input type="text" name="latitude" placeholder="Latitude"  id="latitude">
-            <label for="tel">longitude</label>
-            <input type="text" name="Longitude" placeholder="Longitude"  id="Longitude">
+            <label for="tel">Longitude</label>
+            <input type="text" name="longitude" placeholder="Longitude"  id="longitude">
 
             <label for="tel">ouverture</label>
             <input type="text" name="ouverture" placeholder="Horaire d'ouverture"  id="ouverture">

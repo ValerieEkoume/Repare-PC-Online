@@ -32,14 +32,14 @@ if (isset($_POST['submit'])) {
 
     require_once '../views/functions/auth.php';
     if (est_connecte()) {
-        header('Location: /admin');
+        header('Location: /geek-online');
         exit();
     }
 
         if ($result == false) {
             echo "Vos identifiants ne sont pas correctes, veuillez les saisir à nouveau";
         } else {
-            header('Location: /admin');
+            header('Location: /geek-online');
 
         }
 

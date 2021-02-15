@@ -11,7 +11,7 @@ $whoops = new Run;
 $whoops->pushHandler(new PrettyPageHandler);
 $whoops->register();
 
-$router->map('GET|POST', '/admin', function () {
+$router->map('GET|POST', '/geek-online', function () {
     require __DIR__ . '/../views/admin.php';
 });
 

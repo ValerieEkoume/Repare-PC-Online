@@ -944,29 +944,29 @@ SELECT|sys.sys_config
     </column>
     <column id="294" parent="287" name="latitude">
       <Position>5</Position>
-      <DataType>decimal(10,8 digit)|0s</DataType>
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="295" parent="287" name="longitude">
       <Position>6</Position>
-      <DataType>decimal(10,8 digit)|0s</DataType>
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="296" parent="287" name="created">
+    <column id="296" parent="287" name="fermeture">
       <Position>7</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="297" parent="287" name="ouverture">
       <Position>8</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="298" parent="287" name="fermeture">
+    <column id="298" parent="287" name="created">
       <Position>9</Position>
-      <DataType>time|0s</DataType>
+      <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <key id="299" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
