@@ -1,10 +1,20 @@
 <?php use App\Connection;
 $pdo = (new Connection())->getPdo();
-require '../views/header.html'
+require '../views/header.html';
+
 ?>
-
-
-
+<!-- Leaflet CSS Files -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+<!-- Leaflet JavaScript Files -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
 <body>
 
   <!-- ======= Top Bar ======= -->
@@ -116,7 +126,7 @@ require '../views/header.html'
 
         <div class="row no-gutters">
           <div class="col-lg-6 video-box">
-            <img src="../assets/img/about.jpg" class="img-fluid" alt="">
+            <img id="about_img" src="../assets/img/about1.jpg" class="img-fluid" alt="">
 <!--            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>-->
           </div>
 
@@ -125,7 +135,18 @@ require '../views/header.html'
             <div class="section-title">
               <h2 id="aprop">A Propos</h2>
               <p>Toute l'équipe de <span>REPARE PC online</span> vous souhaite la Bienvenue sur ce site et nous profitons de cette occasion pour vous parler
-               de nous et des services que nous mettons à votre disposition pour vous rendre la vie beaucoup plus simple !
+               de nous et des services que nous mettons à votre disposition.
+                  <br>
+                  Le projet "REPARE PC" initié par ONLINRFORMAPRO est né de la volonté de faire participer activement nos
+                  apprenants sur des cas concrets de maintenance ou télémaintenance informatique.
+                  En effet, comment mieux se préparer au monde du travail et à la réalité du terrain
+                  lorsque l'on est encore en phase d'apprentissage ??!!
+                  Il suffit de proposer ses compétences en informatique gratuitement et intervenir sur des pannes réelles
+                  et des besoins spécifiques émanant de véritables clients (professionnels ou particuliers).
+                  En ouvrant nos portes pendant deux après-midi par semaine en tant que centre de diagnostics et de
+                  réparations gratuit et accessible au public, notre objectif est de permettre aux apprenants de mettre
+                  en avant leurs apprentissages pratiques et théoriques abordés en centre et même de prolonger leurs
+                  connaissances grâce à des compétences clés transverses au métier de technicien informatique.
               </p>
             </div>
 
@@ -150,42 +171,47 @@ require '../views/header.html'
 
 
     <!-- ======= Counts Section ======= -->
-    <section class="counts section-bg">
-      <div class="container">
+    <section class="counts section-bg" data-aos="fade-up">
+        <div id="counts_h3">
+            <h3>Online Repare en quelques chiffres...</h3>
+        </div>
+      <div class="counts_pic">
 
-        <div class="row">
+          <img src="../assets/img/about.jpg" class="img-fluid" alt="">
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-simple-smile" style="color: #20b38e;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Etudiants </p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-document-folder" style="color: #c042ff;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients satisfaits</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
-            <div class="count-box">
-              <i class="bi bi-live-support" style="color: #46d1ff;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Jours/semaine d'ouverture au public</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
-            <div class="count-box">
-              <i class="bi bi-live-support" style="color: #46d1ff;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Nombre de formations réunis</p>
-            </div>
-          </div>
+<!--        <div class="row">-->
+<!---->
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">-->
+<!--            <div class="count-box">-->
+<!--              <i class="bi bi-simple-smile" style="color: #20b38e;"></i>-->
+<!--              <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter"></span>-->
+<!--              <p>Etudiants </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!---->
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">-->
+<!--            <div class="count-box">-->
+<!--              <i class="bi bi-document-folder" style="color: #c042ff;"></i>-->
+<!--              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>-->
+<!--              <p>Clients satisfaits</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!---->
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">-->
+<!--            <div class="count-box">-->
+<!--              <i class="bi bi-live-support" style="color: #46d1ff;"></i>-->
+<!--              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>-->
+<!--              <p>Jours/semaine d'ouverture au public</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!---->
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">-->
+<!--            <div class="count-box">-->
+<!--              <i class="bi bi-live-support" style="color: #46d1ff;"></i>-->
+<!--              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>-->
+<!--              <p>Nombre de formations réunis</p>-->
+<!--            </div>-->
+<!--          </div>-->
 
 
 
@@ -195,7 +221,7 @@ require '../views/header.html'
     </section><!-- End Counts Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section id="services" class="services ">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -226,28 +252,41 @@ require '../views/header.html'
         </div>
 
       </div>
+
+        <p id="services_p2">Nous avons  vocation à confronter nos apprenants sur des projets et incidents réels afin qu’ils soient
+            opérationnels à l’issue de leur formation de technicien informatique. Ils pourront également réaliser une
+            intervention à distance si vous le souhaitez et vous donner toutes les explications nécessaires à la bonne
+            utilisation de votre outil informatique.
+            <br>
+            <br>
+            L'environnement de travail est donc stimulant pour les étudiants mais il permet également à l'équipe
+            pédagogique de donner un sens et une vision concrète des apports théoriques, même si nos formations sont
+            orientées à 90% sur des cas pratiques "pédagogiques".
+            Nos techniciens informatiques en herbe bénéficient de différents outils et différents logiciels pour pouvoir
+            mener à bien leur mission. Si vous voulez profiter de ce service, vous avez également à votre disposition un
+            formulaire de contact qui vous permettra d'être mis en relation avec le centre le plus proche.
+
+        </p>
     </section><!-- End Services Section -->
 
     <!-- ======= La carte ======= -->
     <section id="centres" class="centres">
 
-      <div class="container">
 
-      </div>
 
         <div class="section-title">
-            <div class="container" data-aos="fade-up">
+            <div class="carte_h2" data-aos="fade-up">
             <h2>Nos Centres</h2>
             </div>
         </div>
 
       <!--      <div class="container" data-aos="fade-up" data-aos-delay="100">-->
-        <div class="content">
+<!--        <div class="content">-->
+            <div class="container">
 
-            <div class="row no-gutters">
-                <div class="col-lg-6 video-box" >
+                <div class="directive"><img src="../assets/img/carteDirectives.jpg" class="img-fluid" alt=""></div>
                 <div id="maCarte"></div>
-                </div>
+            </div>
 
             <?php
             if (isset($erreur)) {
@@ -261,24 +300,24 @@ require '../views/header.html'
 </div>";
             }
             ?>
-            </div>
 
 
-    <div class="col-lg-6 d-flex flex-column  about-content " data-aos="fade-up" data-aos-delay="200">
+<!--      </div>-->
+<!--    <div class="col-lg-6 d-flex flex-column  about-content " data-aos="fade-up" data-aos-delay="200">-->
+<!---->
+<!--        <div  id="rdv">-->
+<!--            <h3 id="centres_h3">Comment prendre rendez-vous dans un de nos centres ?</h3>-->
+<!--    <ol>-->
+<!--        <li>Sur la carte, choisissez le centre le plus proche de votre domicile</li>-->
+<!--        <li>Cliquez sur le repère</li>-->
+<!--        <li>Remplissez le formulaire</li>-->
+<!--        <li>Envoyez le formualire avec tous les champs remplis</li>-->
+<!--    </ol>-->
+<!--            <p id="centres_p"><strong>Un mail de confirmation vous sera envoyez sur votre messagerie.</strong> </p>-->
+<!--    </div>-->
 
-        <div  id="rdv">
-            <h3 id="centres_h3">Comment prendre rendez-vous dans un de nos centres ?</h3>
-    <ol>
-        <li>Sur la carte, choisissez le centre le plus proche de votre domicile</li>
-        <li>Cliquez sur le repère</li>
-        <li>Remplissez le formulaire</li>
-        <li>Envoyez le formualire avec tous les champs remplis</li>
-    </ol>
-            <p id="centres_p"><strong>Un mail de confirmation vous sera envoyez sur votre messagerie.</strong> </p>
-    </div>
 
-</div>
-</div>
+<!--</div>-->
 
 </div>
 
@@ -308,12 +347,12 @@ require '../views/header.html'
 
         <div class="row">
 
-          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up">
             <div class="member">
               <div class="pic"><img src="../assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Nom Prénom</h4>
-                <span>Etudiant</span>
+<!--                <h4>Nom Prénom</h4>-->
+<!--                <span>Etudiant</span>-->
 <!--                <div class="social">-->
 <!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
 <!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
@@ -324,12 +363,12 @@ require '../views/header.html'
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
               <div class="pic"><img src="../assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Nom Prénom</h4>
-                <span>Etudiant</span>
+<!--                <h4>Nom Prénom</h4>-->
+<!--                <span>Etudiant</span>-->
 <!--                <div class="social">-->
 <!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
 <!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
@@ -340,12 +379,12 @@ require '../views/header.html'
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="member">
               <div class="pic"><img src="../assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Nom Prénom</h4>
-                <span>Etudiant</span>
+<!--                <h4>Nom Prénom</h4>-->
+<!--                <span>Etudiant</span>-->
 <!--                <div class="social">-->
 <!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
 <!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
@@ -356,12 +395,12 @@ require '../views/header.html'
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="../assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Nom Prénom</h4>
-                <span>Etudiant</span>
+<!--          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">-->
+<!--            <div class="member">-->
+<!--              <div class="pic"><img src="../assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>-->
+<!--              <div class="member-info">-->
+<!--                <h4>Nom Prénom</h4>-->
+<!--                <span>Etudiant</span>-->
 <!--                <div class="social">-->
 <!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
 <!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
