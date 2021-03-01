@@ -50,6 +50,7 @@ require '../views/header.html';
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#centres">Nos Centres</a></li>
           <li><a class="nav-link scrollto" href="#team">L'équipe</a></li>
+            <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
 <!--          <li><a class="nav-link scrollto" href="/admin">admin</a></li>-->
 
 
@@ -150,75 +151,25 @@ require '../views/header.html';
               </p>
             </div>
 
-<!--            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">-->
-<!--              <div class="icon"><i class="bx bx-fingerprint"></i></div>-->
-<!--              <h4 class="title"><a href="">Lorem Ipsum</a></h4>-->
-<!--              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>-->
-<!--            </div>-->
-
-<!--            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">-->
-<!--              <div class="icon"><i class="bx bx-gift"></i></div>-->
-<!--              <h4 class="title"><a href="">Nemo Enim</a></h4>-->
-<!--              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>-->
-<!--            </div>-->
-
           </div>
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+        <div class="counts section-bg" data-aos="fade-up">
+            <div id="counts_h3">
+                <h3>Online Repare en quelques chiffres...</h3>
+            </div>
+            <div class="counts_pic">
 
-
-
-    <!-- ======= Counts Section ======= -->
-    <section class="counts section-bg" data-aos="fade-up">
-        <div id="counts_h3">
-            <h3>Online Repare en quelques chiffres...</h3>
-        </div>
-      <div class="counts_pic">
-
-          <img src="../assets/img/about.jpg" class="img-fluid" alt="">
-
-<!--        <div class="row">-->
-<!---->
-<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">-->
-<!--            <div class="count-box">-->
-<!--              <i class="bi bi-simple-smile" style="color: #20b38e;"></i>-->
-<!--              <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter"></span>-->
-<!--              <p>Etudiants </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!---->
-<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">-->
-<!--            <div class="count-box">-->
-<!--              <i class="bi bi-document-folder" style="color: #c042ff;"></i>-->
-<!--              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>-->
-<!--              <p>Clients satisfaits</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!---->
-<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">-->
-<!--            <div class="count-box">-->
-<!--              <i class="bi bi-live-support" style="color: #46d1ff;"></i>-->
-<!--              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>-->
-<!--              <p>Jours/semaine d'ouverture au public</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!---->
-<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">-->
-<!--            <div class="count-box">-->
-<!--              <i class="bi bi-live-support" style="color: #46d1ff;"></i>-->
-<!--              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>-->
-<!--              <p>Nombre de formations réunis</p>-->
-<!--            </div>-->
-<!--          </div>-->
-
-
-
+                <img src="../assets/img/about.jpg" class="img-fluid" alt="">
+            </div>
         </div>
 
-      </div>
-    </section><!-- End Counts Section -->
+    </section>
+
+       <!-- End About Section -->
+
+
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services ">
@@ -269,9 +220,9 @@ require '../views/header.html';
         </p>
     </section><!-- End Services Section -->
 
-    <!-- ======= La carte ======= -->
-    <section id="centres" class="centres">
+    <!-- ======= Nos Centre ======= -->
 
+    <section id="centres" class="centres">
 
 
         <div class="section-title">
@@ -280,13 +231,13 @@ require '../views/header.html';
             </div>
         </div>
 
-      <!--      <div class="container" data-aos="fade-up" data-aos-delay="100">-->
-<!--        <div class="content">-->
+        <!-- La carte -->
             <div class="container">
 
                 <div class="directive"><img src="../assets/img/carteDirectives.jpg" class="img-fluid" alt=""></div>
                 <div id="maCarte"></div>
             </div>
+        <!-- End La carte -->
 
             <?php
             if (isset($erreur)) {
@@ -302,33 +253,7 @@ require '../views/header.html';
             ?>
 
 
-<!--      </div>-->
-<!--    <div class="col-lg-6 d-flex flex-column  about-content " data-aos="fade-up" data-aos-delay="200">-->
-<!---->
-<!--        <div  id="rdv">-->
-<!--            <h3 id="centres_h3">Comment prendre rendez-vous dans un de nos centres ?</h3>-->
-<!--    <ol>-->
-<!--        <li>Sur la carte, choisissez le centre le plus proche de votre domicile</li>-->
-<!--        <li>Cliquez sur le repère</li>-->
-<!--        <li>Remplissez le formulaire</li>-->
-<!--        <li>Envoyez le formualire avec tous les champs remplis</li>-->
-<!--    </ol>-->
-<!--            <p id="centres_p"><strong>Un mail de confirmation vous sera envoyez sur votre messagerie.</strong> </p>-->
-<!--    </div>-->
-
-
-<!--</div>-->
-
-</div>
-
-<!--        <p class="topo">Vous rencontrez des difficultés à gérer votre ordinateur ? Vous êtes au-->
-<!--          bon endroit ! <br> Geek Garage effectue vos installations de logiciels, de la-->
-<!--          maintenance préventive et ou curative sur vos appareils.<br> Nous sommes à votre-->
-<!--          écoute.</p>-->
-
-      </div>
-
-    </section>
+    </section><!-- End nos centres Section -->
 
 
 
@@ -351,14 +276,7 @@ require '../views/header.html';
             <div class="member">
               <div class="pic"><img src="../assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-<!--                <h4>Nom Prénom</h4>-->
-<!--                <span>Etudiant</span>-->
-<!--                <div class="social">-->
-<!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
-<!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
-<!--                  <a href=""><i class="bi bi-instagram"></i></a>-->
-<!--                  <a href=""><i class="bi bi-linkedin"></i></a>-->
-<!--                </div>-->
+
               </div>
             </div>
           </div>
@@ -367,53 +285,35 @@ require '../views/header.html';
             <div class="member">
               <div class="pic"><img src="../assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-<!--                <h4>Nom Prénom</h4>-->
-<!--                <span>Etudiant</span>-->
-<!--                <div class="social">-->
-<!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
-<!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
-<!--                  <a href=""><i class="bi bi-instagram"></i></a>-->
-<!--                  <a href=""><i class="bi bi-linkedin"></i></a>-->
-<!--                </div>-->
+
               </div>
             </div>
           </div>
 
           <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="pic"><img src="../assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-<!--                <h4>Nom Prénom</h4>-->
-<!--                <span>Etudiant</span>-->
-<!--                <div class="social">-->
-<!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
-<!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
-<!--                  <a href=""><i class="bi bi-instagram"></i></a>-->
-<!--                  <a href=""><i class="bi bi-linkedin"></i></a>-->
-<!--                </div>-->
-              </div>
-            </div>
-          </div>
 
-<!--          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">-->
-<!--            <div class="member">-->
-<!--              <div class="pic"><img src="../assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>-->
-<!--              <div class="member-info">-->
-<!--                <h4>Nom Prénom</h4>-->
-<!--                <span>Etudiant</span>-->
-<!--                <div class="social">-->
-<!--                  <a href=""><i class="bi bi-twitter"></i></a>-->
-<!--                  <a href=""><i class="bi bi-facebook"></i></a>-->
-<!--                  <a href=""><i class="bi bi-instagram"></i></a>-->
-<!--                  <a href=""><i class="bi bi-linkedin"></i></a>-->
-<!--                </div>-->
+              <div class="member">
+                  <div class="pic"><img src="../assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+                  <div class="member-info"></div>
               </div>
-            </div>
+
           </div>
 
         </div>
-
+          <div id="team_p2">
+          <p>
+              Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+              Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme
+              assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
+              que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en
+              soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des
+              passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de
+              texte, comme Aldus PageMaker.
+          </p>
+          </div>
       </div>
+
+
     </section><!-- End Our Team Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
@@ -552,16 +452,7 @@ require '../views/header.html';
             </ul>
           </div>
 
-<!--          <div class="col-lg-3 col-md-6 footer-links">-->
-<!--            <h4>Nos Services</h4>-->
-<!--            <ul>-->
-<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>-->
-<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>-->
-<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>-->
-<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>-->
-<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>-->
-<!--            </ul>-->
-<!--          </div>-->
+
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Notre Newsletter</h4>
